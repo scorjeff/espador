@@ -1,0 +1,14 @@
+{
+  "name": "espador",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "detector-js": "^1.2.0",
+    "express": "^4.17.1",
+    "three": "^0.114.0"
+  }
+}
