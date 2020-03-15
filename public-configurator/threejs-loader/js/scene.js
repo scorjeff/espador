@@ -33,16 +33,17 @@ var axisHelper = new THREE.AxisHelper(5);
  axisHelper.position.y = 10;
 scene.add(axisHelper);
 
+//LEFTfrontRED
 var mtlLoader = new THREE.MTLLoader();
 mtlLoader.setPath('../blender-files/');
-mtlLoader.load('frontRED.mtl', function (materials) {
+mtlLoader.load('frontLeftRED.mtl', function (materials) {
 
 	materials.preload();
 
 	var objLoader = new THREE.OBJLoader();
 	objLoader.setMaterials(materials);
 	objLoader.setPath('../blender-files/');
-	objLoader.load('frontRED.obj', function(object){
+	objLoader.load('frontLeftRED.obj', function(object){
 		console.log(object);
 			scene.add(object);
 			front = object;
@@ -54,7 +55,28 @@ mtlLoader.load('frontRED.mtl', function (materials) {
 			object.rotation.y -=5.5;
 		});
 	});
+//LEFTRearRED
+var mtlLoader = new THREE.MTLLoader();
+mtlLoader.setPath('../blender-files/');
+mtlLoader.load('RearLeftRED.mtl', function (materials) {
 
+	materials.preload();
+
+	var objLoader = new THREE.OBJLoader();
+	objLoader.setMaterials(materials);
+	objLoader.setPath('../blender-files/');
+	objLoader.load('RearLeftRED.obj', function(object){
+		console.log(object);
+			scene.add(object);
+			front = object;
+
+			//positon de départ de l'objet front
+			object.position.z -= -5;
+			object.position.x =5;
+			object.position.y -=-10;
+			object.rotation.y -=5.5;
+		});
+	});
 
 
 //mouvement objet et déplacement = control orbit
