@@ -35,14 +35,14 @@ scene.add(axisHelper);
 
 var mtlLoader = new THREE.MTLLoader();
 mtlLoader.setPath('../blender-files/');
-mtlLoader.load('frontNew.mtl', function (materials) {
+mtlLoader.load('frontRED.mtl', function (materials) {
 
 	materials.preload();
 
 	var objLoader = new THREE.OBJLoader();
 	objLoader.setMaterials(materials);
 	objLoader.setPath('../blender-files/');
-	objLoader.load('frontNew.obj', function(object){
+	objLoader.load('frontRED.obj', function(object){
 		console.log(object);
 			scene.add(object);
 			front = object;
