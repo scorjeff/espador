@@ -3,13 +3,19 @@
  */
 
 var scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xe9b96e);
+  //scene.background = new THREE.Color(0xe9b96e);
 
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.2, 800);
 camera.position.set(35, 15, 25);
 
 var canvasHeight = 500;
 var canvasWidth = 1000;
+
+//var light = new THREE.AmbientLight( 0xB4B4B4, 0.9 );
+var light = new THREE.PointLight( 0xffffff, 0.9 );
+//light.position.set(400, 200, 10 );
+light.position.set(50, 100, 100 );
+scene.add(light);
 
 var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(canvasWidth, canvasHeight);
@@ -22,40 +28,63 @@ window.addEventListener('resize', () => {
 	camera.updateProjectionMatrix();
 })
 
-var light = new THREE.DirectionalLight(0xff0000, 0.9, 1000);
-light.position.set(0, 20, 15);
-scene.add(light);
-
-var front;
+var frontRight;
+var frontLeft;
+var RearLeft;
+var RearRight;
 
 var axisHelper = new THREE.AxisHelper(5);
  axisHelper.position.x = -1;
  axisHelper.position.y = 10;
 scene.add(axisHelper);
 
-//LEFTfrontRED
+//frontLEFTCream
+
+	var mtlLoader = new THREE.MTLLoader();
+	mtlLoader.setPath('../blender-files/');
+	mtlLoader.load('frontLeftCream.mtl', function (materials) {
+	
+		materials.preload();
+	
+		var objLoader = new THREE.OBJLoader();
+		objLoader.setMaterials(materials);
+		objLoader.setPath('../blender-files/');
+		objLoader.load('frontLeftCream.obj', function(object){
+			console.log(object);
+				scene.add(object);
+				frontLeft = object;
+	
+				//positon de départ de l'objet front
+				object.position.z -= 0;
+				object.position.x = 0;
+				object.position.y -= 0;
+				object.rotation.y -= 0;
+			});
+		});
+
 var mtlLoader = new THREE.MTLLoader();
 mtlLoader.setPath('../blender-files/');
-mtlLoader.load('frontLeftRED.mtl', function (materials) {
+mtlLoader.load('frontRightBLUE.mtl', function (materials) {
 
 	materials.preload();
 
 	var objLoader = new THREE.OBJLoader();
 	objLoader.setMaterials(materials);
 	objLoader.setPath('../blender-files/');
-	objLoader.load('frontLeftRED.obj', function(object){
+	objLoader.load('frontRightBLUE.obj', function(object){
 		console.log(object);
 			scene.add(object);
-			front = object;
+			frontRight = object;
 
 			//positon de départ de l'objet front
-			object.position.z -= -1.5;
-			object.position.x =5;
-			object.position.y -=-10;
-			object.rotation.y -=5.5;
+			object.position.z -= -10;
+			object.position.x = 8;
+			object.position.y -= -9;
+			object.rotation.y -= 0;
 		});
 	});
-//LEFTRearRED
+	
+
 var mtlLoader = new THREE.MTLLoader();
 mtlLoader.setPath('../blender-files/');
 mtlLoader.load('RearLeftRED.mtl', function (materials) {
@@ -68,16 +97,15 @@ mtlLoader.load('RearLeftRED.mtl', function (materials) {
 	objLoader.load('RearLeftRED.obj', function(object){
 		console.log(object);
 			scene.add(object);
-			front = object;
+			ReartLeft = object;
 
 			//positon de départ de l'objet front
-			object.position.z -= -5;
+			object.position.z -= 3;
 			object.position.x =5;
 			object.position.y -=-10;
 			object.rotation.y -=5.5;
 		});
 	});
-
 
 //mouvement objet et déplacement = control orbit
 var controls = new THREE.OrbitControls( camera, renderer.domElement );
@@ -99,13 +127,5 @@ var animate = function () {
 	renderer.render( scene, camera );
 
 }
-/* var render = function () {
-	requestAnimationFrame(render);
-
-	//rotation libre
-	//front.rotation.x -= 0.005;
-
-	renderer.render(scene, camera);
-} */
 animate();
 

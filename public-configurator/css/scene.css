@@ -6,6 +6,7 @@ body {
 	width: 150;
 }
 canvas {
+	background-image:url("../blender-files/Texture/cascade.jpg");
 	display: block;
 	width: 8%;
 	height:15px;
