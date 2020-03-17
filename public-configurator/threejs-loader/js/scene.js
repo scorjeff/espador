@@ -12,10 +12,15 @@ var canvasHeight = 500;
 var canvasWidth = 1000;
 
 //var light = new THREE.AmbientLight( 0xB4B4B4, 0.9 );
-var light = new THREE.PointLight( 0xffffff, 0.9 );
+var light1 = new THREE.PointLight( 0xffffff, 0.6 );
 //light.position.set(400, 200, 10 );
-light.position.set(50, 100, 100 );
-scene.add(light);
+light1.position.set(50, 50, 50 );
+scene.add(light1);
+
+var light2 = new THREE.AmbientLight( 0xffffff, 0.5 );
+//light.position.set(400, 200, 10 );
+light2.position.set(0, 10, -50 );
+scene.add(light2);
 
 var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(canvasWidth, canvasHeight);
@@ -55,57 +60,80 @@ scene.add(axisHelper);
 				frontLeft = object;
 	
 				//positon de départ de l'objet front
-				object.position.z -= 0;
+				object.position.z -= 9.5;
 				object.position.x = 0;
-				object.position.y -= 0;
+				object.position.y -= -10;
 				object.rotation.y -= 0;
 			});
 		});
 
 var mtlLoader = new THREE.MTLLoader();
 mtlLoader.setPath('../blender-files/');
-mtlLoader.load('frontRightBLUE.mtl', function (materials) {
+mtlLoader.load('frontRightCream.mtl', function (materials) {
 
 	materials.preload();
 
 	var objLoader = new THREE.OBJLoader();
 	objLoader.setMaterials(materials);
 	objLoader.setPath('../blender-files/');
-	objLoader.load('frontRightBLUE.obj', function(object){
+	objLoader.load('frontRightCream.obj', function(object){
 		console.log(object);
 			scene.add(object);
 			frontRight = object;
 
 			//positon de départ de l'objet front
 			object.position.z -= -10;
-			object.position.x = 8;
-			object.position.y -= -9;
+			object.position.x = -2;
+			object.position.y -= -10;
 			object.rotation.y -= 0;
 		});
 	});
 	
-
-var mtlLoader = new THREE.MTLLoader();
+	var mtlLoader = new THREE.MTLLoader();
 mtlLoader.setPath('../blender-files/');
-mtlLoader.load('RearLeftRED.mtl', function (materials) {
+mtlLoader.load('RearLeftCream.mtl', function (materials) {
 
 	materials.preload();
 
 	var objLoader = new THREE.OBJLoader();
 	objLoader.setMaterials(materials);
 	objLoader.setPath('../blender-files/');
-	objLoader.load('RearLeftRED.obj', function(object){
+	objLoader.load('RearLeftCream.obj', function(object){
 		console.log(object);
 			scene.add(object);
-			ReartLeft = object;
+			RearRight = object;
 
 			//positon de départ de l'objet front
-			object.position.z -= 3;
-			object.position.x =5;
-			object.position.y -=-10;
-			object.rotation.y -=5.5;
+			object.position.z -= 11.2;
+			object.position.x = -2;
+			object.position.y -= -10;
+			object.rotation.y -= 0;
 		});
 	});
+
+var mtlLoader = new THREE.MTLLoader();
+mtlLoader.setPath('../blender-files/');
+mtlLoader.load('RearRightCream.mtl', function (materials) {
+
+	materials.preload();
+
+	var objLoader = new THREE.OBJLoader();
+	objLoader.setMaterials(materials);
+	objLoader.setPath('../blender-files/');
+	objLoader.load('RearRightCream.obj', function(object){
+		console.log(object);
+			scene.add(object);
+			RearLeft = object;
+
+			//positon de départ de l'objet front
+			object.position.z -= -10;
+			object.position.x = -2;
+			object.position.y -= -10;
+			object.rotation.y -= 0;
+		});
+	});
+
+
 
 //mouvement objet et déplacement = control orbit
 var controls = new THREE.OrbitControls( camera, renderer.domElement );
