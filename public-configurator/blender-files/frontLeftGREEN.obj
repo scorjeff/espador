@@ -1,6 +1,6 @@
-# Blender v2.79 (sub 0) OBJ File: 'frontLeftRED.blend'
+# Blender v2.79 (sub 0) OBJ File: 'frontLeftGREEN.blend'
 # www.blender.org
-mtllib frontLeftRED.mtl
+mtllib frontLeftGREEN.mtl
 o Plane
 v -0.224426 1.598527 -3.992827
 v -0.911496 1.640204 -3.928392
@@ -31482,7 +31482,7 @@ vn -0.0566 0.3472 -0.9361
 vn -0.0519 0.3452 -0.9371
 vn -0.0663 0.3353 -0.9398
 vn -0.0709 0.3373 -0.9387
-usemtl red
+usemtl green
 s off
 f 1/1/1 1313/2/1 3937/3/1 1331/4/1
 f 1/1/2 1331/4/2 3941/5/2 1316/6/2

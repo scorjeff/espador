@@ -8,7 +8,7 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.2, 800);
 camera.position.set(35, 15, 25);
 
-var canvasHeight = 500;
+var canvasHeight = 400;
 var canvasWidth = 1000;
 
 //var light = new THREE.AmbientLight( 0xB4B4B4, 0.9 );

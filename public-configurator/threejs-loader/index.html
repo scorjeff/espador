@@ -5,13 +5,14 @@
 	<meta charset="UTF-8">
 	<title>appli espador</title>
 	<link rel="stylesheet" href="../css/scene.css">
-	<canvas id="canvas">
-  Affichage d'un texte pour les navigateurs qui ne supportent pas canvas.
-</canvas>
+
 	<!-- <style type="../css/scene.css"></style> -->
 	<script src="js/three.js"></script>
 	<script src="js/three.min.js"></script>
-
+	<link rel="stylesheet" href="../css/menu.css">
+	<canvas id="canvas">
+  Affichage d'un texte pour les navigateurs qui ne supportent pas canvas.
+	</canvas>
 </head>
 
 <body>
@@ -20,11 +21,69 @@
 	<script src="js/OBJLoader.js"></script>
 	<script src="js/MTLLoader.js"></script>
 	<script src="js/OrbitControls.js"></script>
-	<script src ="js/ColladaLoader.js"> </script>
+	<script src="js/ColladaLoader.js"> </script>
 	<script src="js/Detector.js"></script>
 	<script src="js/scene.js"></script>
+
+<ul>
+	<ul id="menu">
+    <li><a href="#">Size</a>
+            <ul class="sousMenu">
+                    <li><a href="#">28</a></li>
+                    <li><a href="#">29</a></li>
+                    <li><a href="#">30</a></li>
+                    <li><a href="#">31</a></li>
+            </ul>
+        </li>
+    <li><a href="#">Front Left</a>
+            <ul class="sousMenu">
+                    <li><a href="#">Basket</a></li>
+                    <li><a href="#">Roller Derby</a></li>
+                    <li><a href="#">Tennis</a></li>
+            </ul>
+        </li>
+    <li><a href="#">Front Right</a>
+            <ul class="sousMenu">
+                    <li><a href="#">Paris</a></li>
+                    <li><a href="#">Londre</a></li>
+            </ul>
+		</li>
+		<li><a href="#">Rear Left</a>
+            <ul class="sousMenu">
+                    <li><a href="#">Paris</a></li>
+                    <li><a href="#">Londre</a></li>
+            </ul>
+		</li>
+		<li><a href="#">Rear Right</a>
+            <ul class="sousMenu">
+                    <li><a href="#">Paris</a></li>
+                    <li><a href="#">Londre</a></li>
+            </ul>
+		</li>
+	</ul>
+	<!-- <div id="menu">
+		<div class="toggle-size" onclick="expand()"></div>
+			<a href="#">Size</a>
+			<a ref="#">25</a>
+			<a ref="#">lien sous menu 1</a>
+			<a ref="#">lien sous menu 1</a>
+			<a ref="#">lien sous menu 1</a>
+
+			</div>
+	<a href="#">Lien menu 2</a>
+		<ul>
+			<li><a href="#">Lien sous menu 2</a></li>
+			<li><a href="#">Lien sous menu 2</a></li>
+			<li><a href="#">Lien sous menu 2</a></li>
+			<li><a href="#">Lien sous menu 2</a></li>
+		</ul>
+	</li>
+	</div -->
+</ul>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
 
+	
 </body>
 
 </html>
