@@ -12,6 +12,23 @@ camera.position.set(35, 15, 25);
 var canvasHeight = 400;
 var canvasWidth = 1000;
 
+// function resize
+function resizeRendererToDisplaySize(renderer) {
+	  const canvas = renderer.domElement;
+	  var width = window.innerWidth;
+	  var height = window.innerHeight;
+	  var canvasPixelWidth = canvas.width / window.devicePixelRatio;
+	  var canvasPixelHeight = canvas.height / window.devicePixelRatio;
+
+	  const needResize = canvasPixelWidth !== width || canvasPixelHeight !== height;
+	  if (needResize) {
+	    
+	    renderer.setSize(width, height, false);
+	  }
+	  return needResize;
+	}
+
+
 // var light = new THREE.AmbientLight( 0xB4B4B4, 0.9 );
 var light1 = new THREE.PointLight( 0xffffff, 0.6 );
 // light.position.set(400, 200, 10 );
@@ -49,7 +66,7 @@ scene.add(axisHelper);
 	var mtlLoader = new THREE.MTLLoader();
 	mtlLoader.setPath('../blender-files/');
 	mtlLoader.load('frontLeftCream.mtl', function (materials) {
-	
+	object = obj.scene;
 		materials.preload();
 	
 		var objLoader = new THREE.OBJLoader();
@@ -148,13 +165,16 @@ controls.enableZoom = true;
 controls.update();
 
 var animate = function () {
-
+	renderer.render( scene, camera );
 	requestAnimationFrame( animate );
 
+	 if (resizeRendererToDisplaySize(renderer)) {
+		    const canvas = renderer.domElement;
+		    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+		    camera.updateProjectionMatrix();
+		  }
 	// required if controls.enableDamping or controls.autoRotate are set to true
 	controls.update();
-
-	renderer.render( scene, camera );
 
 }
 animate();
