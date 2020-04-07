@@ -9,24 +9,8 @@ var canvas = document .querySelector ( '#canvas' );
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.2, 800);
 camera.position.set(35, 15, 25);
 
-var canvasHeight = 400;
-var canvasWidth = 1000;
-
-// function resize
-function resizeRendererToDisplaySize(renderer) {
-	  const canvas = renderer.domElement;
-	  var width = window.innerWidth;
-	  var height = window.innerHeight;
-	  var canvasPixelWidth = canvas.width / window.devicePixelRatio;
-	  var canvasPixelHeight = canvas.height / window.devicePixelRatio;
-
-	  const needResize = canvasPixelWidth !== width || canvasPixelHeight !== height;
-	  if (needResize) {
-	    
-	    renderer.setSize(width, height, false);
-	  }
-	  return needResize;
-	}
+var canvasHeight = 300;
+var canvasWidth = 800;
 
 
 // var light = new THREE.AmbientLight( 0xB4B4B4, 0.9 );
@@ -50,6 +34,8 @@ window.addEventListener('resize', () => {
 
 	camera.updateProjectionMatrix();
 })
+// appel function button
+//
 
 var frontRight;
 var frontLeft;
@@ -60,6 +46,14 @@ var axisHelper = new THREE.AxisHelper(5);
  axisHelper.position.x = -1;
  axisHelper.position.y = 10;
 scene.add(axisHelper);
+
+//
+// function change couleur
+const colors = [
+	{
+		colorfrontLeft: '../'
+	}
+]
 
 // frontLEFTCream
 
@@ -150,8 +144,27 @@ mtlLoader.load('RearRightCream.mtl', function (materials) {
 			object.rotation.y -= 0;
 		});
 	});
+	
+		//buton
+var button = document.createElement("button");
+    button.style.top = "400px";
+    button.style.left = "100px";
+    button.textContent = "blue";
+    button.style.width = "90px";
+    button.style.height = "50px";
 
+	
+    button.setAttribute = ("id", "but");
+    button.style.position = "absolute";
+    button.style.color = "black";
+    button.color = "green";
 
+    document.body.appendChild(button);
+    button.addEventListener("click", function(){
+			frontRight.MTLLoader.getElementById = frontRightBlue.mtl;
+		
+	})
+	
 
 // mouvement objet et déplacement = control orbit
 var controls = new THREE.OrbitControls( camera, renderer.domElement );
