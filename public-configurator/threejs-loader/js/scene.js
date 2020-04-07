@@ -146,14 +146,14 @@ mtlLoader.load('RearRightCream.mtl', function (materials) {
 	});
 	
 		//buton
-var button = document.createElement("button");
+var button = document.querySelector("button");
     button.style.top = "400px";
     button.style.left = "100px";
     button.textContent = "blue";
     button.style.width = "90px";
     button.style.height = "50px";
 
-	
+
     button.setAttribute = ("id", "but");
     button.style.position = "absolute";
     button.style.color = "black";
